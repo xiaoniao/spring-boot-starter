@@ -30,6 +30,8 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 
 /**
+ * Spring Mybatis 属性配置
+ *
  * Configuration properties for MyBatis.
  *
  * @author Eddú Meléndez

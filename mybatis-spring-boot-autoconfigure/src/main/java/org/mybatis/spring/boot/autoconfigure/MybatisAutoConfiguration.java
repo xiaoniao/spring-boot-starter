@@ -91,6 +91,14 @@ public class MybatisAutoConfiguration {
 
   private final List<ConfigurationCustomizer> configurationCustomizers;
 
+  /**
+   * 使用构造器方式构造，比get/set注入会快一些
+   * @param properties
+   * @param interceptorsProvider
+   * @param resourceLoader
+   * @param databaseIdProvider
+   * @param configurationCustomizersProvider
+   */
   public MybatisAutoConfiguration(MybatisProperties properties,
       ObjectProvider<Interceptor[]> interceptorsProvider,
       ResourceLoader resourceLoader,
