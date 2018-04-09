@@ -29,6 +29,8 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 
 /**
+ * 加载class文件
+ *
  * @author Hans Westerbeek
  * @author Eddú Meléndez
  * @author Kazuki Shimizu

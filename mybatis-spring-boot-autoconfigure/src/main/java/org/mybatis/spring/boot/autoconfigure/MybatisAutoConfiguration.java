@@ -92,7 +92,8 @@ public class MybatisAutoConfiguration {
   private final List<ConfigurationCustomizer> configurationCustomizers;
 
   /**
-   * 使用构造器方式构造，比get/set注入会快一些
+   * 使用构造器方式构造，会先于 get/set 方式注入
+   *
    * @param properties
    * @param interceptorsProvider
    * @param resourceLoader
@@ -120,6 +121,13 @@ public class MybatisAutoConfiguration {
     }
   }
 
+  /**
+   * 实例化 SqlSessionFactory
+   *
+   * @param dataSource
+   * @return
+   * @throws Exception
+   */
   @Bean
   @ConditionalOnMissingBean
   public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
@@ -165,6 +173,12 @@ public class MybatisAutoConfiguration {
     factory.setConfiguration(configuration);
   }
 
+  /**
+   * 实例化 SqlSessionTemplate
+   *
+   * @param sqlSessionFactory
+   * @return
+   */
   @Bean
   @ConditionalOnMissingBean
   public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
@@ -183,8 +197,7 @@ public class MybatisAutoConfiguration {
    * mappers working correctly, out-of-the-box, similar to using Spring Data JPA
    * repositories.
    */
-  public static class AutoConfiguredMapperScannerRegistrar
-      implements BeanFactoryAware, ImportBeanDefinitionRegistrar, ResourceLoaderAware {
+  public static class AutoConfiguredMapperScannerRegistrar implements BeanFactoryAware, ImportBeanDefinitionRegistrar, ResourceLoaderAware {
 
     private BeanFactory beanFactory;
 
